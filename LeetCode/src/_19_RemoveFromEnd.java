@@ -1,6 +1,6 @@
 /**
  * Given a linked list, remove the nth node from the end of list and return its head.
- *
+ * the n is valid
  */
 
 class ListNode{
@@ -17,36 +17,38 @@ public class _19_RemoveFromEnd {
 		if(head == null || n <= 0)
 			return head;
 		
-		ListNode prior = head;
+		ListNode start = new ListNode(0);
+		ListNode slow = start, fast = start;
+		start.next = head;
+		
+		//move fast in front so that the gap between slow and fast becomes n
 		int i;
-		for(i = 0; i < n && prior != null; i++){
-			prior = prior.next;
-		}
-		if(prior == null && i == n){ // remove head
-			head = head.next;
-			return head;
+		for(i = 0; i < n+1; i++){
+			fast = fast.next;
 		}
 		
-		ListNode cur = head;
-		while(prior.next != null){
-			prior = prior.next;
-			cur = cur.next;
+		while(fast != null){
+			slow = slow.next;
+			fast = fast.next;
 		}
-		cur.next = cur.next.next;
 		
-		return head;
+		slow.next = slow.next.next;
+		
+		//why don't return head?
+		//because head may be deleted
+		return start.next;
 	}
 	
 
 	public static void main(String[] args) {
 		_19_RemoveFromEnd test = new _19_RemoveFromEnd();
 		ListNode head = new ListNode(1);
-		head.next = new ListNode(2);
-		head.next.next = new ListNode(3);
-		head.next.next.next = new ListNode(4);
-		head.next.next.next.next = new ListNode(5);
+//		head.next = new ListNode(2);
+//		head.next.next = new ListNode(3);
+//		head.next.next.next = new ListNode(4);
+//		head.next.next.next.next = new ListNode(5);
 		
-		head = test.removeNthFromEnd(head, 2);
+		head = test.removeNthFromEnd(head, 1);
 		while(head != null){
 			System.out.print(head.val+" ");
 			head = head.next;
