@@ -43,7 +43,7 @@ public class _32_LongestValidParentheses {
 		longest = Math.max(a, longest);
 		return longest;
 	}
-	//one pass, the method upside need two pass the stack
+	//one pass, the method upside need two pass of the stack
 	public int longestValidParentheses1(String s){
 		if(s == null || s.length() == 0) return 0;
 		
@@ -57,6 +57,9 @@ public class _32_LongestValidParentheses {
 			if(t != -1 && ch[i] == ')' && ch[t] == '('){
 				stack.pop();
 				longest = Math.max(longest, i-stack.peek());
+				//can not use longest += 2!
+				//()(()这种情况结果会是4！
+				//在每次pop之后进行max求值，一定会保存最长被pop掉的长度！
 			}else
 				stack.push(i);
 		}
