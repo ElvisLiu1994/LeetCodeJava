@@ -1,6 +1,6 @@
 
 public class _4_MedianofTwoSortedArrays {
-	
+	//O(log(m+n))
 	public double findMedianSortedArrays(int[] nums1, int[] nums2){
 		
 		if(nums1.length > nums2.length) return findMedianSortedArrays(nums2, nums1);
@@ -8,7 +8,7 @@ public class _4_MedianofTwoSortedArrays {
 		if(nums2.length == 0) return 0;
 		
 		int m = nums1.length, n = nums2.length;
-		int imin = 0, imax = m, half_len = (m+n+1)/2;
+		int imin = 0, imax = m, half_len = (m+n+1)/2;//前k个的话，half_len就直接等于k
 		int max_of_left, min_of_right;
 		while(imin <= imax){
 			int i = (imin + imax) / 2;

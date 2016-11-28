@@ -6,7 +6,6 @@ INDEX VERSION 1.129+/Users/liujing/Documents/LeetCode/.metadata/.plugins/org.ecl
 2117113611.index
 624708564.index
 1931402068.index
-3203757408.index
 3227702110.index
 995153890.index
 576073405.index
