@@ -59,6 +59,7 @@ public class _33_SearchInRotatedArray {
 		if(target == nums[minIdx]) return minIdx;
 		s = (target > nums[nums.length-1]) ? 0 : minIdx;
 		e = (target > nums[nums.length-1]) ? minIdx-1 : nums.length-1;
+		//这里也可以用s<e，只是在循环执行完后，要加上对s==e这一点值的判断就可以了
 		while(s <= e){
 			mid = (s+e)>>1;
 			if(nums[mid] == target) return mid;
