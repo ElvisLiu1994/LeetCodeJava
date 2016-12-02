@@ -48,7 +48,7 @@ public class _34_SearchForRange {
 		int low = 0, high = nums.length-1;
 		int[] result = new int[]{-1,-1};
 		
-		//最终跳出循环时肯定是low==high时，而后面会有对该点值的判断，所以这里不用low<=high
+		//最终跳出循环时肯定是low==high或者low-high==1时，而后面对nums[low]有判断，所以这里不用low<=high
 		while(low < high){
 			int mid = (low+high)>>1;
 			if(nums[mid] < target){
