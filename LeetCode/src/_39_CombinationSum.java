@@ -52,11 +52,11 @@ public class _39_CombinationSum {
 	private void solve(int[] candidates, int target, int start, List<List<Integer>> res, List<Integer> combination) {
 		if (target == 0) {
 			res.add(new ArrayList<Integer>(combination));
-			return;
+			return;//回溯
 		}
 		for (int i = start; i < candidates.length && target >= candidates[i]; i++) {
 			combination.add(candidates[i]);
-			solve(candidates, target-candidates[i], i, res, combination);
+			solve(candidates, target-candidates[i], i, res, combination);//递归
 			combination.remove(combination.size() - 1);
 		}
 	}
