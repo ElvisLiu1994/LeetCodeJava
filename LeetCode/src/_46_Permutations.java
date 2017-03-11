@@ -1,6 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Total Accepted: 149970
+Total Submissions: 362282
+Difficulty: Medium
+Contributors: Admin
+Given a collection of distinct numbers, return all possible permutations.
 
+For example,
+[1,2,3] have the following permutations:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+ * @author liujing
+ *
+ */
 public class _46_Permutations {
 	
 	public List<List<Integer>> permute(int[] nums){
@@ -13,7 +32,7 @@ public class _46_Permutations {
 		
 	}
 	
-	public void solve(int[] nums, List<Integer> used, List<List<Integer>> res){
+	private void solve(int[] nums, List<Integer> used, List<List<Integer>> res){
 		if(used.size() == nums.length){
 			res.add(new ArrayList<Integer>(used));
 			return;
