@@ -15,7 +15,7 @@ You should return [1,2,3,6,9,8,7,4,5].
  * @author liujing
  *
  */
-public class _56_SpiralMatrix {
+public class _54_SpiralMatrix {
 	
 	public List<Integer> spiralOrder(int[][] matrix){
 		
@@ -132,7 +132,7 @@ public class _56_SpiralMatrix {
 	}
 
 	public static void main(String[] args) {
-		_56_SpiralMatrix test = new _56_SpiralMatrix();
+		_54_SpiralMatrix test = new _54_SpiralMatrix();
 		int[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
 		System.out.println(test.spiralOrder2(matrix));
 	}
