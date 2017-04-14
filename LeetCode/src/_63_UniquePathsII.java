@@ -42,7 +42,8 @@ public class _63_UniquePathsII {
     }
 
 	public static void main(String[] args) {
-		
+		System.out.println(Math.round(1.805*100)/100.0);
+		System.out.println(String.format("%.2f", 1.805));
 	}
 
 }
