@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class _65_ValidNumber {
 	// 使用正则表达式来判断
 	public boolean isNumber(String s) {
-		String regex = "[-+]?(([0-9]+(.[0-9]*)?)|.[0-9]+)(e[-+]?[0-9]+)?";
+		String regex = "\\s*[-+]?(([0-9]+(\\.[0-9]*)?)|\\.[0-9]+)(e[-+]?[0-9]+)?\\s*";
 		return Pattern.compile(regex).matcher(s).matches();
 	}
 
@@ -60,9 +60,11 @@ public class _65_ValidNumber {
 		Pattern p = Pattern.compile(greedy);
 		Matcher m = p.matcher("000001");
 		System.out.println(m.matches());
-		System.out.println();
-		;
+		
 		System.out.println(m.replaceFirst("r"));
+		
+		_65_ValidNumber test = new _65_ValidNumber();
+		System.out.println("\n"+test.isNumber(".1e10"));
 	}
 
 }
