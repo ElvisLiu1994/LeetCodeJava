@@ -10,7 +10,7 @@ public class _77_Combinations {
     public List<List<Integer>> combine(int n, int k) {
     	
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        
+          
         return res;
     }
 
