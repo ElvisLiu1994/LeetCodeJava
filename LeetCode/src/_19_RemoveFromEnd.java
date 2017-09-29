@@ -10,6 +10,32 @@ class ListNode{
 	ListNode(int x){
 		this.val = x;
 	}
+	
+	ListNode(int[] nums){
+		
+		this.val = nums[0];
+		ListNode tail = this;
+		
+		for(int i = 1; i < nums.length; i++) {
+			ListNode tmp = new ListNode(nums[i]);
+			tail.next = tmp;
+			tail = tail.next;
+		}
+	}
+
+	@Override
+	public String toString() {
+		
+		ListNode cur = this;
+		StringBuilder sb = new StringBuilder("[ ");
+		while(cur != null) {
+			sb.append(cur.val+" ");
+			cur = cur.next;
+		}
+		return sb.toString()+"]";
+	}
+	
+	
 }
 
 public class _19_RemoveFromEnd {
