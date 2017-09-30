@@ -45,14 +45,14 @@ public class _33_SearchInRotatedArray {
 	public int search2(int[] nums, int target){
 		if(nums == null || nums.length == 0) return -1;
 		
-		int s = 0, e = nums.length-1;
+		int s = 0, e = nums.length - 1;
 		int mid = 0, minIdx = 0;
 		
 		//e指向最后一个元素
 		while(s < e){
 			mid = (s+e) >> 1;
 		 	if(nums[mid] > nums[e]) s = mid+1;
-			else e = mid; //如果用while(s<=e)那么会限入死循环,因为这里不是e=mid-1；因为这里mid可能是最小的元素，不能排除掉
+            else e = mid; //如果用while(s<=e)那么会限入死循环,因为这里不是e=mid-1；因为这里mid可能是最小的元素，不能排除掉
 		}
 		
 		minIdx = s;
@@ -68,11 +68,36 @@ public class _33_SearchInRotatedArray {
 		}
 		return -1;
 	}
+	
+	public int search3(int[] nums, int target) {
+		if(nums == null || nums.length == 0) return -1;
+	    int lo = 0;
+	    int hi = nums.length - 1;
+	    while (lo <= hi) {
+	        int mid = (lo + hi) / 2;
+	        if (nums[mid] == target) return mid;
+	        
+	        if (nums[lo] <= nums[mid]) {
+	            if (target >= nums[lo] && target < nums[mid]) {
+	                hi = mid - 1;
+	            } else {
+	                lo = mid + 1;
+	            }
+	        } else {
+	            if (target > nums[mid] && target <= nums[hi]) {
+	                lo = mid + 1;
+	            } else {
+	                hi = mid - 1;
+	            }
+	        }
+	    }
+	    return -1;
+	}
 
 	public static void main(String[] args) {
 		_33_SearchInRotatedArray test = new _33_SearchInRotatedArray();
-		int[] nums = new int[]{3,5,1};
-		System.out.println(test.search2(nums, 3));
+		int[] nums = new int[]{};
+		System.out.println(test.search3(nums, 5));
 	}
 
 }
