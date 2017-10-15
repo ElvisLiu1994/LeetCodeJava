@@ -63,7 +63,7 @@ public class _85_MaximalRectangle {
 	}
 	
 	/**
-	 * 
+	 * DP方法
 	 */
     public int maximalRectangle1(char[][] matrix) {
 		
