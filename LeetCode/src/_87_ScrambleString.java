@@ -47,9 +47,7 @@ public class _87_ScrambleString {
 	 * WRONG: abcd  bdac
 	 */
 	public static boolean isScramble1(String s1, String s2){
-		if(s1.length() != s2.length()) return false;
 		
-		int len = s1.length();
 		int[] hash = new int[256];
 		
 		for(char c: s1.toCharArray()) {
@@ -67,10 +65,37 @@ public class _87_ScrambleString {
 		return true;
 	}
 	
+	/**
+	 * 前面过滤掉一些基本的情况后，后面使用递归进行求解。
+	 */
 	public static boolean isScramble(String s1, String s2) {
+		
 		if(s1.length() != s2.length()) return false;
 		
+		if(s1.equals(s2)) return true;
 		
+		int[] hash = new int[256];
+		for(int i = 0; i < s1.length(); i++) {
+			hash[s1.charAt(i)]++;
+			hash[s2.charAt(i)]--;
+		}
+		//如果包含的字符集不一样，那么返回false
+		for(int i = 0; i < hash.length; i++) {
+			if(hash[i] != 0) return false;
+		}
+		
+		int len = s1.length();
+		//这里的i一定不能从0开始，如果i从0开始的话，那么每次两段会被分为0和len长度的两段，len长度的继续分为0和len两段
+		//最终栈溢出
+		for(int i = 1; i < len; i++) {
+			if(isScramble(s1.substring(0, i), s2.substring(0, i)) 
+					&& isScramble(s1.substring(i), s2.substring(i)))
+				return true;
+			if(isScramble(s1.substring(0, i), s2.substring(len-i)) && 
+					isScramble(s1.substring(i), s2.substring(0,len-i)))
+				return true;
+		}
+		return false;
 	}
 
 	public static void main(String[] args) {
