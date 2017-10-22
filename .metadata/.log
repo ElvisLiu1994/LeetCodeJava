@@ -4326,3 +4326,13 @@ LeetCode/src/_87_ScrambleString.java
 	at org.eclipse.jgit.dircache.DirCacheCheckout.checkout(DirCacheCheckout.java:443)
 	at org.eclipse.jgit.api.MergeCommand.call(MergeCommand.java:293)
 	... 9 more
+!SESSION 2017-10-22 11:25:55.696 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/liujing/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/liujing/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-10-22 11:26:04.125
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
