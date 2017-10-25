@@ -23,7 +23,7 @@ public class _25_ReverseKNodes {
 		if(head == null || k == 1)
 			return head;
 		//recursion exit
-		ListNode temp = head;
+		ListNode temp = head; //从head开始，所以i从1开始
 		for(int i = 1; i < k; i++){
 			temp = temp.next;
 			if(temp == null)
@@ -86,7 +86,7 @@ public class _25_ReverseKNodes {
 		head.next.next.next = new ListNode(4);
 		head.next.next.next.next = new ListNode(5);
 		
-		head = test.reverseKGroup1(head, 3);
+		head = test.reverseKGroup(head, 3);
 		while(head != null){
 			System.out.print(head.val+" ");
 			head = head.next;
