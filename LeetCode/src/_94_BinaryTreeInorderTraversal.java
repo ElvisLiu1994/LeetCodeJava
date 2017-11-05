@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Given a binary tree, return the inorder traversal of its nodes' values.
@@ -33,7 +35,7 @@ public class _94_BinaryTreeInorderTraversal {
 		
 	}
 	
-	// 
+	// Method 1: Using one stack and the binary tree node will be changed. Easy ,not Practical
 	public static List<Integer> inorderTraversal1(TreeNode root) {
 		
 		List<Integer> res = new ArrayList<Integer>();
@@ -43,21 +45,83 @@ public class _94_BinaryTreeInorderTraversal {
 		LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
 		
 		stack.push(root);
-		
 		while(!stack.isEmpty()) {
 			
 			TreeNode top = stack.peek();
-			while(top.left != null) {
+			if(top.left != null) {
 				stack.push(top.left);
-				top = top.left;
+				top.left = null; // 其左子树后入栈会被先访问到，所以可以设置其左儿子为空，这样不会死循环
+			}else{
+				res.add(top.val);
+				stack.pop();
+				if(top.right != null){
+					stack.push(top.right);
+				}
 			}
 			
-			top = stack.pop();
+		}
+		
+		return res;
+	}
+	
+	// Method 2: Using one stack and one unordered_map, this will not changed the node. Better
+	public static List<Integer> inorderTraversal2(TreeNode root) {
+		List<Integer> res = new ArrayList<Integer>();
+		
+		if(root == null) return res;
+		
+		LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+		Map<TreeNode, Boolean> map = new HashMap<TreeNode, Boolean>();// left child has been visited:true.
+		
+		stack.push(root);
+		while(!stack.isEmpty()) {
+			
+			TreeNode top = stack.peek();
+			// 如果左孩子不为空，并且还没有被访问过
+			if(top.left != null && !map.get(top)) {
+				stack.push(top.left);
+				map.put(top.left, true);
+			}else{
+				res.add(top.val);
+				stack.pop();
+				if(top.right != null)
+					stack.push(top.right);
+			}
+		}
+		
+		return res;
+	}
+	
+	// Method 3: Using one stack and will not changed the node. Best(at least in this three solutions)
+	public static List<Integer> inorderTraversal3(TreeNode root) {
+		
+		List<Integer> res = new ArrayList<Integer>();
+		
+		if(root == null) return res;
+		
+		LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+		
+		TreeNode cur = root;
+		while(cur != null || !stack.isEmpty()) {
+			
+			if(cur != null){
+				stack.push(cur);
+				cur = cur.left;
+			}else{
+				TreeNode top = stack.pop();
+				res.add(top.val);
+				cur = cur.right;
+			}
+			
+			/* 下面这种写法与上面是一样的
+			while(cur != null){
+				stack.push(cur);
+				cur = cur.left;
+			}
+			TreeNode top = stack.pop();
 			res.add(top.val);
-			
-			if(top.right != null){
-				stack.push(top.right);
-			}
+			cur = cur.right;
+			*/
 			
 		}
 		
