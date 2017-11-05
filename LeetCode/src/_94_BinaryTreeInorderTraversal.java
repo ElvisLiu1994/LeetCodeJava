@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -133,7 +134,9 @@ public class _94_BinaryTreeInorderTraversal {
 		root.right = new TreeNode(2);
 		root.right.left = new TreeNode(3);
 		
-		System.out.println(inorderTraversal1(root));
+		TreeNode root1 = new TreeNode(Arrays.asList(1,-1,3,2));
+		
+		System.out.println(inorderTraversal1(root1));
 	}
 
 }
@@ -147,10 +150,26 @@ class TreeNode {
 		val = x;
 	}
 	
-	TreeNode(int[] nums) {
-		
-		for(int x : nums) {
-			
+	// 递归创建二叉树，这里提供的数组是中序遍历的数组，包含Null，比如[1, null, 2, 3]对应题目中的情况
+	TreeNode(List<Integer> nums) {
+		this.val = nums.remove(0);
+		createTreeNode(this.left, nums);
+		createTreeNode(this.right, nums);
+	}
+	
+	void createTreeNode(TreeNode T, List<Integer> nums) {
+		if(nums.size() == 0) {
+			T = null;
+			return;
+		}
+		int x = nums.remove(0);
+		if(x == -1) {
+			T = null;
+			return;
+		}else{
+			T = new TreeNode(x);
+			createTreeNode(T.left, nums);
+			createTreeNode(T.right, nums);
 		}
 	}
 }
