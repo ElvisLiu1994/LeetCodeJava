@@ -120,9 +120,14 @@ public class _94_BinaryTreeInorderTraversal {
 			}
 
 			/*
-			 * 下面这种写法与上面是一样的 while(cur != null){ stack.push(cur); cur =
-			 * cur.left; } TreeNode top = stack.pop(); res.add(top.val); cur =
-			 * cur.right;
+			 * 下面这种写法与上面是一样的 
+			 * while(cur != null){ 
+			 * 	stack.push(cur); 
+			 * 	cur = cur.left; 
+			 * } 
+			 * TreeNode top = stack.pop(); 
+			 * res.add(top.val); 
+			 * cur = cur.right;
 			 */
 
 		}
@@ -135,7 +140,7 @@ public class _94_BinaryTreeInorderTraversal {
 		root.right = new TreeNode(2);
 		root.right.left = new TreeNode(3);
 
-		TreeNode root1 = new TreeNode(new int[] { 1, -1, 3, 2 });
+		TreeNode root1 = new TreeNode(new int[] { 1, -1, 2, 3 });
 
 		System.out.println(inorderTraversal1(root1));
 	}
@@ -163,15 +168,16 @@ class TreeNode {
 	TreeNode createTreeNode(int[] nums) {
 		if (counter < nums.length) {
 			if (nums[counter] == -1) {
+				counter++;
 				return null;
 			} else {
-				return new TreeNode(nums[counter++]);
+				TreeNode node = new TreeNode(nums[counter++]);
+				node.left = createTreeNode(nums);
+				node.right = createTreeNode(nums);
+				return node;
 			}
 		}else{
 			return null;
 		}
-		
-		
-		
 	}
 }
