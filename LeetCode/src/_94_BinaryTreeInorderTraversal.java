@@ -71,11 +71,8 @@ public class _94_BinaryTreeInorderTraversal {
 			return res;
 
 		LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
-		Map<TreeNode, Boolean> map = new HashMap<TreeNode, Boolean>();// left
-																		// child
-																		// has
-																		// been
-																		// visited:true.
+		Map<TreeNode, Boolean> map = new HashMap<TreeNode, Boolean>();
+		// left child has been visited:true.
 
 		stack.push(root);
 		while (!stack.isEmpty()) {
