@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /**
- * Given an integer n, return all distinct solutions to the n-queens puzzle.
+Given an integer n, return all distinct solutions to the n-queens puzzle.
 
 Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.
 
@@ -34,7 +34,7 @@ public class _51_NQueens {
 		for(int i = 0; i < n; i++)
 			sb.append('.');
 		String str = sb.toString();
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; i++) // 
 			cur.add(str);
 //		solve(n,res, cur, 0);
 		solve2(n,res,cur,0,new boolean[n],new boolean[2*n-1],new boolean[2*n-1]);
@@ -77,7 +77,14 @@ public class _51_NQueens {
 				return false;
 		return true;
 	}
-	
+	/**
+	 * The number of columns is n, the number of 45° diagonals is 2 * n - 1, 
+	 * the number of 135° diagonals is also 2 * n - 1. When reach [row, col], 
+	 * the column No. is col, the 45° diagonal No. is row + col and t
+	 * he 135° diagonal No. is n - 1 + col - row. We can use three arrays to 
+	 * indicate if the column or the diagonal had a queen before, if not, 
+	 * we can put a queen in this position and continue.
+	 */
 	private void solve2(int n, List<List<String>> res, List<String> current, int row,boolean[] flag_col, boolean[] flag_45, boolean[] flag_135){
 		if(row == n){
 			res.add(new ArrayList<String>(current));
