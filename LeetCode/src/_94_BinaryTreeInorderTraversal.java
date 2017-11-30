@@ -113,7 +113,7 @@ public class _94_BinaryTreeInorderTraversal {
 			} else {
 				TreeNode top = stack.pop();
 				res.add(top.val);
-				cur = cur.right;
+				cur = top.right;
 			}
 
 			/*
@@ -124,7 +124,7 @@ public class _94_BinaryTreeInorderTraversal {
 			 * } 
 			 * TreeNode top = stack.pop(); 
 			 * res.add(top.val); 
-			 * cur = cur.right;
+			 * cur = top.right;
 			 */
 
 		}
@@ -152,11 +152,12 @@ class TreeNode {
 	TreeNode(int x) {
 		val = x;
 	}
-
-	static int counter = 0;
-
+	
+	private int counter = 0;
 	// 递归创建二叉树，这里提供的数组是中序遍历的数组，包含Null，比如[1, null, 2, 3]对应题目中的情况
+	
 	TreeNode(int[] nums) {
+		this.counter = 0;
 		this.val = nums[counter++];
 		this.left = createTreeNode(nums);
 		this.right = createTreeNode(nums);

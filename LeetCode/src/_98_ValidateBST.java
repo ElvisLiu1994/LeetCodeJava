@@ -26,6 +26,10 @@ public class _98_ValidateBST {
 	/**
 	 * BST需要满足的条件为：根节点的值要在正确的区间，左子树为BST，右子树为BST
 	 * 这里的区间约束为自上而下递归变化地
+	 * 
+	 * 一开始的想法是，让root.val大于左子树的最大值，小于右子子树的最大值，但是这两个值的信息不知道，
+	 * 所以可以通过不限定root.val的值，而将root.val作为一个约束，让其子树满足约束条件
+	 * 这里的不限定是指一开始的root的约束为Integer.MIN_VALUE和Integer.MAX_VALUE
 	 */
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
