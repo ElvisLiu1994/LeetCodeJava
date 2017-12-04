@@ -58,10 +58,15 @@ public class _101_SymmetricTree {
         return true;
         
     }
+    
+    public static boolean isSymmetric1(TreeNode root) {
+    	
+    }
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(new int[] {3241242});
 		System.out.println(isSymmetric(root));
 	}
-
+	
+	
 }
