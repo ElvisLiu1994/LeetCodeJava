@@ -8,7 +8,14 @@ import java.util.Map;
 /**
  * Given a binary tree, return the inorder traversal of its nodes' values.
  * 
- * For example: Given binary tree [1,null,2,3], 1 \ 2 / 3 return [1,3,2].
+ * For example: Given binary tree [1,null,2,3], 
+ * 1 
+ *  \ 
+ *   2 
+ *  / 
+ * 3 
+ * 
+ * return [1,3,2].
  * 
  * Note: Recursive solution is trivial, could you do it iteratively?
  *
@@ -154,8 +161,7 @@ class TreeNode {
 	}
 	
 	private int counter = 0;
-	// 递归创建二叉树，这里提供的数组是中序遍历的数组，包含Null，比如[1, null, 2, 3]对应题目中的情况
-	
+	// 递归创建二叉树，这里提供的数组是前序遍历的数组，包含Null，比如[1, null, 2, 3]对应题目中的情况	
 	TreeNode(int[] nums) {
 		this.counter = 0;
 		this.val = nums[counter++];

@@ -30,14 +30,31 @@ public class _102_BTreeLevelOrderTraversal {
 		
 		LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
 		
-		while(root != null || !queue.isEmpty()) {
+		queue.offer(root);
+		while(!queue.isEmpty()) {
 			
+			int levelNum = queue.size();
+			List<Integer> subList = new ArrayList<Integer>();
+			
+			for(int i = 0; i < levelNum; i++) {
+				TreeNode tmp = queue.poll();
+				subList.add(tmp.val);
+				if(tmp.left != null) queue.offer(tmp.left);
+				if(tmp.right != null) queue.offer(tmp.right);
+			}
+			
+			res.add(subList);
 		}
+		
+		return res;
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		TreeNode root = new TreeNode(new int[] {3,9,-1,-1,20,15,-1,-1,7});
+		List<List<Integer>> res = levelOrder(root);
+		for(List<Integer> l : res) {
+			System.out.println(l);
+		}
 	}
 
 }

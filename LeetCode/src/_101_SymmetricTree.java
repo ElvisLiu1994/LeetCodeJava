@@ -76,7 +76,7 @@ public class _101_SymmetricTree {
     }
     
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(new int[] {3241242});
+		TreeNode root = new TreeNode(new int[] {1,2,3,-1,-1,-1,2,-1,3});
 		System.out.println(isSymmetric(root));
 	}
 	
