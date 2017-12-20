@@ -56,7 +56,7 @@ public class _79_WordSearch {
 
 	public static void main(String[] args) {
 //		char[][] board = new char[][]{  {'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-		char[][] board = new char[][]{{'a', 'a'}};
+		char[][] board = new char[][]{ {'a', 'a'} };
 		_79_WordSearch test = new _79_WordSearch();
 		System.out.print(test.exist(board, "aaa"));
 			  

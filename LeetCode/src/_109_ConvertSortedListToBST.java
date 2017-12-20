@@ -24,13 +24,13 @@ public class _109_ConvertSortedListToBST {
 	 * 首先想到的办法就是将
 	 */
 	public static TreeNode sortedListToBST(ListNode head) {
-		if(head == null) return null;
+	    if(head == null) return null;
 		
 		
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	    // TODO Auto-generated method stub
 
 	}
 
