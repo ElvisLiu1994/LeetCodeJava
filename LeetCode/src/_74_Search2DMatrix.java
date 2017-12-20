@@ -46,8 +46,8 @@ public class _74_Search2DMatrix {
 
 	public static void main(String[] args) {
 		_74_Search2DMatrix test = new _74_Search2DMatrix();
-		int[][] m = new int[][]{{1,3,5,7},{10,11,16,20},{23, 30, 34, 50}};
-		int[][] m1 = new int[][]{{1}};
+		int[][] m = new int[][]{ {1,3,5,7},{10,11,16,20},{23, 30, 34, 50} };
+		int[][] m1 = new int[][]{ {1} };
 		System.out.println(test.searchMatrix(m, 3));
 	}
 

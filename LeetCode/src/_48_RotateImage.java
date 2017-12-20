@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * You are given an n x n 2D matrix representing an image.
@@ -95,7 +94,7 @@ public class _48_RotateImage {
 
 	public static void main(String[] args) {
 		_48_RotateImage test = new _48_RotateImage();
-		int[][] m = {{1,2,3},{4,5,6},{7,8,9}};
+		int[][] m = { {1,2,3},{4,5,6},{7,8,9} };
 		test.rotate_anticlockwise(m);
 		
 //		int[][] tmp = Arrays.copyOf(m, m.length);

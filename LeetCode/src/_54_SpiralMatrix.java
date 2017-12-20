@@ -112,7 +112,7 @@ public class _54_SpiralMatrix {
         int n = matrix[0].length;
         if(n == 0) return res;
         
-        int[][] direction = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int[][] direction = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} };
         int[] range = {n, m-1};//水平平移量从n开始减，竖直方向平移量从m-1开始
         int dir = 0; // index of dirMatrix, 0: right, 1: down, 2: left, 3: up
         int row = 0, col = -1; // initial position
@@ -133,7 +133,7 @@ public class _54_SpiralMatrix {
 
 	public static void main(String[] args) {
 		_54_SpiralMatrix test = new _54_SpiralMatrix();
-		int[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
+		int[][] matrix = { {1,2,3},{4,5,6},{7,8,9} };
 		System.out.println(test.spiralOrder2(matrix));
 	}
 

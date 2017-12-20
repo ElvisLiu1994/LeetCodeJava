@@ -20,6 +20,9 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 public class _109_ConvertSortedListToBST {
 	
+	/*
+	 * 首先想到的办法就是将
+	 */
 	public static TreeNode sortedListToBST(ListNode head) {
 		if(head == null) return null;
 		
