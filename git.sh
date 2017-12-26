@@ -2,6 +2,6 @@
 
 git add --all
 
-git commit -m 'add git.sh'
+git commit -m $1
 
 git push 
