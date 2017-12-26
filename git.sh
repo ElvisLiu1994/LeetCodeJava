@@ -2,7 +2,6 @@
 
 git add --all
 
-git commit -m 'leetcode update'
+git commit -m 'add git.sh'
 
-git push
-
+git push 
