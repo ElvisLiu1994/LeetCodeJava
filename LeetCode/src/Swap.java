@@ -33,6 +33,15 @@ public class Swap {
             e.printStackTrace();
         }
     }
+    
+    public static void add(Integer i) {
+//        i++;
+        i = new Integer(i+1);
+        //无论上面哪做法都是将形参i指向了另外一个值为i+1的空间，而实参i的指向始终不会被
+        //类似于指针传递，int* i; 如果仅仅只是将 i = &(i+1)这样的话，不会对外面的i指向产生任何影响
+        //所以只能通过修*i来达到修改的目的
+        //换句话说就是，形参也只是个局部变量，与实参指向同一片内存空间而以，如果只是让形参指向另一个空间，那么对实参是不会产生影响的
+    }
 
     public static void main(String[] args) {
         int a = 1;
@@ -81,6 +90,10 @@ public class Swap {
         Integer cc = new Integer(129);
         System.out.println(aa == cc);
         System.out.println(aa == bb);
+        
+        Integer i1 = new Integer(1);
+        add(i1);
+        System.out.println(i1); // i1仍然是1
     }
 
 }
